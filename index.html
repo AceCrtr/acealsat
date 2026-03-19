@@ -10,20 +10,32 @@
         :root { --bg: #fcfcfc; --text: #000; --card: #ffffff; }
         .dark-mode { --bg: #0a0a0a; --text: #fff; --card: #141414; }
         
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; transition: all 0.3s ease; overflow-x: hidden; }
         
+        .bg-gradient-top {
+            position: fixed; top: 0; left: 0; width: 100%; height: 300px;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, rgba(252, 252, 252, 0) 100%);
+            z-index: -2;
+        }
+
         .glass-card { background: var(--card); border: 1px solid rgba(128,128,128,0.1); shadow-sm; }
         
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow-y: auto; background-color: var(--bg); backdrop-filter: blur(20px); }
-        
+        .modal-content { margin: 5% auto; width: 92%; max-width: 450px; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
         .img-slider { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
         .img-slider::-webkit-scrollbar { display: none; }
-        .img-slider img, .img-slider video { flex: 0 0 100%; scroll-snap-align: start; border-radius: 24px; height: 240px; object-fit: cover; }
+        .img-slider img, .img-slider video { flex: 0 0 100%; scroll-snap-align: start; border-radius: 24px; height: 240px; object-fit: cover; background: #000; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="antialiased">
 
-    <button onclick="toggleDark()" class="fixed top-6 right-20 z-[60] bg-gray-200 dark:bg-gray-800 p-2 rounded-full text-xl shadow-lg">🌓</button>
+    <div class="bg-gradient-top"></div>
+
+    <button onclick="toggleDark()" class="fixed top-6 right-16 z-[60] bg-gray-100 dark:bg-gray-800 p-2 rounded-full text-lg shadow-md">🌓</button>
 
     <nav class="p-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100/10">
         <div>
@@ -35,71 +47,97 @@
 
     <main class="container mx-auto px-6 py-8 max-w-md">
         
-        <div class="mb-8 bg-black text-white p-6 rounded-[2rem] shadow-xl flex justify-between items-center">
-            <div>
-                <p class="text-[10px] font-bold opacity-50 uppercase tracking-widest">Aktif İlan</p>
-                <p class="text-2xl font-black italic">1 ADET</p>
-            </div>
-            <div class="text-right">
-                <p class="text-[10px] font-bold opacity-50 uppercase tracking-widest">Durum</p>
-                <p class="text-xs font-black text-green-400 uppercase">Çevrimiçi</p>
-            </div>
+        <div class="mb-6">
+            <h2 class="text-[11px] font-black tracking-[0.2em] uppercase text-gray-400 italic">Vitrin</h2>
+            <div class="h-1 w-10 bg-blue-600 mt-1"></div>
         </div>
 
-        <div class="glass-card rounded-[2.5rem] overflow-hidden mb-12 cursor-pointer transition-transform active:scale-95 shadow-2xl" onclick="openModal()">
-            <div class="relative">
-                <img src="Screenshot_20260319_182330_Brawl Stars.jpg" class="w-full h-56 object-cover">
-                <div class="absolute top-4 right-4 bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg">TAKASA UYGUN</div>
-                <div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-2 py-1 rounded-lg text-[9px] text-white font-bold">▶ VİDEOLU İLAN</div>
-            </div>
-            <div class="p-6 text-center">
-                <h3 class="text-3xl font-black uppercase italic tracking-tighter mb-4">37K KUPA HESAP</h3>
-                <div class="grid grid-cols-2 gap-3 mb-6">
-                    <div class="bg-gray-50 dark:bg-white/5 p-4 rounded-2xl border border-gray-100/10">
-                        <p class="text-[9px] font-bold opacity-50 uppercase mb-1">Karakter</p>
-                        <p class="font-black text-base">73 Adet</p>
+        <div class="glass-card rounded-[2.5rem] overflow-hidden mb-12 shadow-xl border border-gray-100/20" onclick="openModal()">
+            <img src="Screenshot_20260319_182330_Brawl Stars.jpg" class="w-full h-56 object-cover cursor-pointer">
+            <div class="p-8 text-center">
+                <span class="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase mb-4 inline-block">Brawl Stars</span>
+                <h3 class="text-3xl font-black uppercase italic tracking-tighter mb-8">37K KUPA TAKASLIK</h3>
+                
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="bg-gray-50 dark:bg-white/5 p-5 rounded-3xl">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Karakter</p>
+                        <p class="text-xl font-black">73</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-white/5 p-4 rounded-2xl border border-gray-100/10">
-                        <p class="text-[9px] font-bold opacity-50 uppercase mb-1">Kuruluş</p>
-                        <p class="font-black text-base">2019</p>
+                    <div class="bg-gray-50 dark:bg-white/5 p-5 rounded-3xl">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Kuruluş</p>
+                        <p class="text-xl font-black">2019</p>
                     </div>
                 </div>
-                <button class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest">VİDEOYU VE DETAYLARI GÖR</button>
+                
+                <button class="text-blue-600 font-black text-sm uppercase tracking-widest hover:underline">Detayları Gör</button>
             </div>
         </div>
 
-        </main>
+        <div class="mb-12">
+            <h3 class="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 mb-5">Referanslar</h3>
+            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+                <div class="min-w-[260px] bg-gray-900 text-white p-6 rounded-[2.5rem] shadow-lg">
+                    <p class="text-xs font-medium italic opacity-80 mb-4">"Hesap tam anlatıldığı gibiydi, takas işlemini sorunsuz hallettik. Güvenilir."</p>
+                    <p class="text-[10px] font-bold text-blue-400 uppercase">— Emirhan Y.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center pb-20">
+            <p class="text-[10px] font-bold text-gray-300 uppercase tracking-[0.5em] mb-6">Bizi Takip Et</p>
+            <div class="flex justify-center">
+                <a href="https://instagram.com/acealsat" target="_blank" class="w-14 h-14 bg-white shadow-xl border border-gray-100 rounded-[1.5rem] flex items-center justify-center text-black">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <a href="https://wa.me/905010291556" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-[100] active:scale-90 transition-transform">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    </a>
 
     <div id="myModal" class="modal">
-        <div class="modal-content p-4">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-black uppercase italic text-blue-600">HESAP İNCELEME</h2>
-                <button onclick="closeModal()" class="text-4xl opacity-30 hover:opacity-100">&times;</button>
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6 px-4">
+                <h2 class="text-2xl font-black uppercase italic tracking-tighter text-blue-600">HESAP DETAYI</h2>
+                <button onclick="closeModal()" class="text-4xl opacity-30">&times;</button>
             </div>
             
-            <div class="img-slider mb-6">
-                <video controls poster="Screenshot_20260319_182330_Brawl Stars.jpg">
+            <div class="img-slider mb-8 px-2">
+                <video controls poster="Screenshot_20260319_182330_Brawl Stars.jpg" class="shadow-2xl">
                     <source src="hesap_video.mp4" type="video/mp4">
                     Tarayıcınız video oynatmayı desteklemiyor.
                 </video>
                 <img src="Screenshot_20260319_182340_Brawl Stars.jpg">
             </div>
 
-            <div class="space-y-4">
-                <div class="bg-blue-600 text-white p-6 rounded-[2rem] text-center shadow-xl shadow-blue-500/20">
-                    <p class="text-[10px] font-bold uppercase tracking-widest opacity-70 mb-1">Güncel Kupa</p>
-                    <p class="text-4xl font-black italic">37.083</p>
+            <div class="px-4 space-y-4">
+                <div class="grid grid-cols-2 gap-4 text-center">
+                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10">
+                        <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Kupa</p>
+                        <p class="text-2xl font-black text-blue-600">37.083</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10">
+                        <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Karakter</p>
+                        <p class="text-2xl font-black">73 / 100</p>
+                    </div>
                 </div>
 
-                <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10 text-center">
-                    <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Satıcı Notu</p>
-                    <p class="text-sm font-bold">2019 Kuruluş. Özel skinler ve rozetler mevcuttur. Ciddi alıcılarla takas konuşulur.</p>
+                <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] text-center border border-gray-100/10">
+                    <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Hesap Sahibi</p>
+                    <p class="text-xl font-black italic">MSE | GeVeZe</p>
                 </div>
 
-                <a href="https://wa.me/905010291556" class="block w-full bg-green-500 text-white text-center py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest shadow-xl">
-                    WHATSAPP'TAN TEKLİF VER
+                <div class="p-6 bg-blue-50 dark:bg-blue-900/10 rounded-[2rem] text-center">
+                    <p class="text-xs font-bold text-blue-700">Hesap 2019 kuruluş olup özel skinler barındırır.</p>
+                </div>
+
+                <a href="https://wa.me/905010291556" class="block w-full bg-black text-white dark:bg-white dark:text-black text-center py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest shadow-2xl active:scale-95 transition-all">
+                    TEKLİF VER / SATIN AL
                 </a>
             </div>
+            <div class="h-12"></div>
         </div>
     </div>
 
@@ -107,6 +145,7 @@
         function toggleDark() { document.body.classList.toggle('dark-mode'); }
         function openModal() { document.getElementById("myModal").style.display = "block"; document.body.style.overflow = "hidden"; }
         function closeModal() { document.getElementById("myModal").style.display = "none"; document.body.style.overflow = "auto"; }
+        window.onclick = function(event) { if (event.target == document.getElementById("myModal")) { closeModal(); } }
     </script>
 </body>
 </html>
