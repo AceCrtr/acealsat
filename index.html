@@ -24,9 +24,7 @@
         .modal-content { margin: 5% auto; width: 92%; max-width: 450px; animation: slideUp 0.3s ease-out; }
         @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        .img-slider { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-        .img-slider::-webkit-scrollbar { display: none; }
-        .img-slider img, .img-slider video { flex: 0 0 100%; scroll-snap-align: start; border-radius: 24px; height: 240px; object-fit: cover; background: #000; }
+        .video-container video { width: 100%; border-radius: 28px; height: 400px; object-fit: cover; background: #000; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3); }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
@@ -50,18 +48,13 @@
         <div class="mb-8 bg-black text-white p-6 rounded-[2rem] shadow-xl flex justify-between items-center">
             <div>
                 <p class="text-[10px] font-bold opacity-50 uppercase tracking-widest">Aktif İlan</p>
-                <p class="text-2xl font-black italic text-white">1 ADET</p>
+                <p class="text-2xl font-black italic">1 ADET</p>
             </div>
             <div class="h-10 w-[1px] bg-white/20"></div>
             <div class="text-right">
                 <p class="text-[10px] font-bold opacity-50 uppercase tracking-widest">Durum</p>
                 <p class="text-xs font-black text-green-400 uppercase">Çevrimiçi</p>
             </div>
-        </div>
-
-        <div class="mb-6 flex justify-between items-center">
-            <h2 class="text-[11px] font-black tracking-[0.2em] uppercase text-gray-400 italic">Vitrin / Öne Çıkan</h2>
-            <div class="h-1 w-10 bg-blue-600"></div>
         </div>
 
         <div class="glass-card rounded-[2.5rem] overflow-hidden mb-12 cursor-pointer transition-transform active:scale-95 shadow-2xl" onclick="openModal()">
@@ -71,7 +64,6 @@
             </div>
             <div class="p-6">
                 <h3 class="text-2xl font-black uppercase italic tracking-tighter mb-4 text-center">37K KUPA HESAP</h3>
-                
                 <div class="grid grid-cols-2 gap-3 mb-6">
                     <div class="bg-gray-50 dark:bg-white/5 p-4 rounded-2xl border border-gray-100/10 text-center">
                         <p class="text-[9px] font-bold text-gray-400 uppercase mb-1">Karakter</p>
@@ -82,17 +74,24 @@
                         <p class="font-black text-base">2019</p>
                     </div>
                 </div>
-                
                 <button class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-blue-500/20">İlanı Detaylı Gör</button>
             </div>
         </div>
 
         <div class="mb-12">
             <h3 class="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 mb-5 px-2">Referanslar</h3>
-            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
-                <div class="min-w-[260px] bg-gray-900 text-white p-6 rounded-[2.5rem] shadow-lg">
+            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-4">
+                <div class="min-w-[280px] bg-gray-900 text-white p-6 rounded-[2.5rem] shadow-lg">
                     <p class="text-xs font-medium italic opacity-80 mb-4">"Hesap tam anlatıldığı gibiydi, takas işlemini sorunsuz hallettik."</p>
                     <p class="text-[10px] font-bold text-blue-400 uppercase">— Emirhan Y.</p>
+                </div>
+                <div class="min-w-[280px] bg-blue-600 text-white p-6 rounded-[2.5rem] shadow-lg">
+                    <p class="text-xs font-medium italic opacity-90 mb-4">"İlk defa takas yaptım, çok yardımcı oldu. Güven konusunda 1 numara."</p>
+                    <p class="text-[10px] font-bold text-white uppercase">— Arda K.</p>
+                </div>
+                <div class="min-w-[280px] bg-gray-100 dark:bg-white/10 p-6 rounded-[2.5rem] shadow-lg">
+                    <p class="text-xs font-medium italic opacity-80 mb-4">"Hızlı teslimat ve dürüst satıcı. Teşekkürler ACE!"</p>
+                    <p class="text-[10px] font-bold text-blue-600 uppercase">— Selin T.</p>
                 </div>
             </div>
         </div>
@@ -107,10 +106,6 @@
         </div>
     </main>
 
-    <a href="https://wa.me/905010291556" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-[100] active:scale-90 transition-transform">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    </a>
-
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6 px-4">
@@ -118,36 +113,27 @@
                 <button onclick="closeModal()" class="text-4xl opacity-30">&times;</button>
             </div>
             
-            <div class="img-slider mb-8 px-2">
-                <video controls poster="Screenshot_20260319_182330_Brawl Stars.jpg" class="shadow-2xl">
+            <div class="video-container mb-8 px-2">
+                <video controls poster="Screenshot_20260319_182330_Brawl Stars.jpg">
                     <source src="hesap_video.mp4" type="video/mp4">
                     Tarayıcınız video oynatmayı desteklemiyor.
                 </video>
-                <img src="Screenshot_20260319_182340_Brawl Stars.jpg">
             </div>
 
             <div class="px-4 space-y-4">
-                <div class="grid grid-cols-2 gap-4 text-center">
-                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10">
-                        <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Kupa</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10 text-center shadow-sm">
+                        <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Toplam Kupa</p>
                         <p class="text-2xl font-black text-blue-600">37.083</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10">
-                        <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Karakter</p>
-                        <p class="text-2xl font-black">73 / 100</p>
+                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10 text-center shadow-sm">
+                        <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Karakterler</p>
+                        <p class="text-2xl font-black text-blue-600">73 / 100</p>
                     </div>
                 </div>
 
-                <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] text-center border border-gray-100/10">
-                    <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Hesap Sahibi</p>
-                    <p class="text-xl font-black italic">MSE | GeVeZe</p>
-                </div>
-
-                <div class="p-4 bg-blue-50 dark:bg-blue-900/10 rounded-[2rem] text-center">
-                    <p class="text-xs font-bold text-blue-700">Hesap 2019 kuruluş olup özel skinler barındırır.</p>
-                </div>
-
-                <a href="https://wa.me/905010291556" class="block w-full bg-black text-white dark:bg-white dark:text-black text-center py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest shadow-2xl active:scale-95 transition-all">
+                <a href="https://wa.me/905010291556" class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white text-center py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest shadow-xl shadow-green-500/20 active:scale-95 transition-all">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
                     TEKLİF VER / SATIN AL
                 </a>
             </div>
@@ -163,3 +149,4 @@
     </script>
 </body>
 </html>
+
