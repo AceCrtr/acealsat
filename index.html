@@ -24,7 +24,7 @@
         .modal-content { margin: 5% auto; width: 92%; max-width: 450px; animation: slideUp 0.3s ease-out; }
         @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        .video-container video { width: 100%; border-radius: 28px; height: 400px; object-fit: cover; background: #000; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3); }
+        .video-container video { width: 100%; border-radius: 28px; height: auto; max-height: 480px; object-fit: contain; background: #000; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3); }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <div class="glass-card rounded-[2.5rem] overflow-hidden mb-12 cursor-pointer transition-transform active:scale-95 shadow-2xl" onclick="openModal()">
+        <div class="glass-card rounded-[2.5rem] overflow-hidden mb-6 cursor-pointer transition-transform active:scale-95 shadow-2xl" onclick="openModal()">
             <div class="relative">
                 <img src="Screenshot_20260319_182330_Brawl Stars.jpg" class="w-full h-56 object-cover">
                 <div class="absolute top-4 right-4 bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shadow-lg">Takasa Uygun</div>
@@ -74,7 +74,18 @@
                         <p class="font-black text-base">2019</p>
                     </div>
                 </div>
-                <button class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-blue-500/20">İlanı Detaylı Gör</button>
+                <button class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-blue-500/20 italic">İlanı İncele</button>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-4 mb-12 px-2">
+            <div class="flex items-center gap-2 bg-green-50 dark:bg-green-900/10 px-4 py-2 rounded-full border border-green-100/20">
+                <span class="text-green-500 text-lg">🛡️</span>
+                <span class="text-[10px] font-black uppercase tracking-tight text-green-600">GÜVENİLİR İŞLEM</span>
+            </div>
+            <div class="flex items-center gap-2 bg-blue-50 dark:bg-blue-900/10 px-4 py-2 rounded-full border border-blue-100/20">
+                <span class="text-blue-500 text-lg">⚡</span>
+                <span class="text-[10px] font-black uppercase tracking-tight text-blue-600">15 DK TESLİMAT</span>
             </div>
         </div>
 
@@ -86,12 +97,8 @@
                     <p class="text-[10px] font-bold text-blue-400 uppercase">— Emirhan Y.</p>
                 </div>
                 <div class="min-w-[280px] bg-blue-600 text-white p-6 rounded-[2.5rem] shadow-lg">
-                    <p class="text-xs font-medium italic opacity-90 mb-4">"İlk defa takas yaptım, çok yardımcı oldu. Güven konusunda 1 numara."</p>
+                    <p class="text-xs font-medium italic opacity-90 mb-4">"Güven konusunda 1 numara. Takas sürecinde her adımda yardımcı oldu."</p>
                     <p class="text-[10px] font-bold text-white uppercase">— Arda K.</p>
-                </div>
-                <div class="min-w-[280px] bg-gray-100 dark:bg-white/10 p-6 rounded-[2.5rem] shadow-lg">
-                    <p class="text-xs font-medium italic opacity-80 mb-4">"Hızlı teslimat ve dürüst satıcı. Teşekkürler ACE!"</p>
-                    <p class="text-[10px] font-bold text-blue-600 uppercase">— Selin T.</p>
                 </div>
             </div>
         </div>
@@ -114,25 +121,24 @@
             </div>
             
             <div class="video-container mb-8 px-2">
-                <video controls poster="Screenshot_20260319_182330_Brawl Stars.jpg">
+                <video controls poster="Screenshot_20260319_182330_Brawl Stars.jpg" preload="metadata">
                     <source src="hesap_video.mp4" type="video/mp4">
-                    Tarayıcınız video oynatmayı desteklemiyor.
                 </video>
             </div>
 
             <div class="px-4 space-y-4">
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10 text-center shadow-sm">
+                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10 text-center">
                         <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Toplam Kupa</p>
                         <p class="text-2xl font-black text-blue-600">37.083</p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10 text-center shadow-sm">
+                    <div class="bg-gray-50 dark:bg-white/5 p-6 rounded-[2rem] border border-gray-100/10 text-center">
                         <p class="text-[10px] font-bold opacity-50 uppercase mb-1">Karakterler</p>
                         <p class="text-2xl font-black text-blue-600">73 / 100</p>
                     </div>
                 </div>
 
-                <a href="https://wa.me/905010291556" class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white text-center py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest shadow-xl shadow-green-500/20 active:scale-95 transition-all">
+                <a href="https://wa.me/905010291556?text=Merhaba,%20Ace%20Al%20Sat%20üzerinden%2037K%20Brawl%20Stars%20hesabı%20ile%20ilgileniyorum." class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white text-center py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest shadow-xl shadow-green-500/20 active:scale-95 transition-all">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
                     TEKLİF VER / SATIN AL
                 </a>
