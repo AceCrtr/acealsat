@@ -3,46 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ace Al Sat | Hızlı ve Güvenli Ticaret</title>
+    <title>Ace Al Sat | Oyun Hesap Pazarı</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        body { background-color: #000000; color: #ffffff; }
+        .card-dark { background-color: #111111; border: 1px solid #333; }
+        .neon-text { color: #3b82f6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        .btn-buy { background: linear-gradient(90deg, #1e40af, #3b82f6); }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="font-sans">
 
-    <nav class="bg-white shadow-lg p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-700">ACE AL SAT</h1>
-            <div class="space-x-4">
-                <a href="#" class="text-gray-600 font-medium">İlanlar</a>
-                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg">İlan Ver</a>
-            </div>
-        </div>
+    <nav class="p-5 border-b border-gray-800 flex justify-between items-center">
+        <h1 class="text-2xl font-black tracking-tighter neon-text">ACE AL SAT</h1>
+        <div class="text-sm font-bold text-gray-400">OYUN HESAP MERKEZİ</div>
     </nav>
 
-    <header class="hero-gradient text-white py-16 px-4 text-center">
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Aradığını Bul, Elindekini Sat!</h2>
-        <p class="text-xl opacity-90 mb-8">Ace Al Sat ile en hızlı ticaret deneyimi.</p>
-        <div class="max-w-md mx-auto">
-            <input type="text" placeholder="Ürün veya kategori ara..." class="w-full p-4 rounded-full text-gray-800 focus:outline-none shadow-2xl">
-        </div>
+    <header class="py-12 px-6 text-center">
+        <h2 class="text-3xl font-bold mb-2">Efsane Hesaplar, Tek Adres.</h2>
+        <p class="text-gray-500">Güvenli takas ve satış için doğru yerdesin.</p>
     </header>
 
-    <section class="container mx-auto py-12 px-4">
-        <h3 class="text-2xl font-bold mb-6 text-gray-800">Popüler Kategoriler</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white p-6 rounded-xl shadow text-center hover:scale-105 transition">📱 Elektronik</div>
-            <div class="bg-white p-6 rounded-xl shadow text-center hover:scale-105 transition">🚗 Vasıta</div>
-            <div class="bg-white p-6 rounded-xl shadow text-center hover:scale-105 transition">🏠 Emlak</div>
-            <div class="bg-white p-6 rounded-xl shadow text-center hover:scale-105 transition">👕 Moda</div>
-        </div>
-    </section>
+    <main class="container mx-auto px-4 pb-20">
+        <h3 class="text-xl font-semibold mb-6 border-l-4 border-blue-600 pl-3">Aktif İlanlarım</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="card-dark p-4 rounded-2xl">
+                <div class="h-40 bg-gray-900 rounded-xl mb-4 flex items-center justify-center text-gray-700">Görsel Yakında</div>
+                <h4 class="text-lg font-bold">Valorant - Yücelik Hesap</h4>
+                <p class="text-sm text-gray-400 mb-4">Yağmacı Vandal + Ejder Ghost + 1500 VP</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-green-500 font-bold text-xl">500 TL</span>
+                    <a href="https://wa.me/905xxxxxxxxx" class="btn-buy px-6 py-2 rounded-lg font-bold text-sm">SATIN AL / TAKAS</a>
+                </div>
+            </div>
 
-    <footer class="bg-gray-800 text-white py-8 text-center mt-12">
-        <p>&copy; 2024 Ace Al Sat - Tüm Hakları Saklıdır.</p>
+            <div class="card-dark p-4 rounded-2xl">
+                <div class="h-40 bg-gray-900 rounded-xl mb-4 flex items-center justify-center text-gray-700">Görsel Yakında</div>
+                <h4 class="text-lg font-bold">League of Legends - Full Hero</h4>
+                <p class="text-sm text-gray-400 mb-4">200 Skin + Platin Çerçeve + Takasa Açık</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-green-500 font-bold text-xl">Takaslık</span>
+                    <a href="https://wa.me/905010291556" class="btn-buy px-6 py-2 rounded-lg font-bold text-sm">TEKLİF VER</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="p-10 border-t border-gray-900 text-center text-gray-600 text-xs">
+        <p>Ace Al Sat &copy; 2026 | Sadece Bana Özel Portfolyo</p>
     </footer>
 
 </body>
 </html>
-
