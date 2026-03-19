@@ -5,92 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ace Al Sat | Premium Ticaret</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #fafafa; color: #000; font-family: 'Inter', sans-serif; }
-        .ace-title { font-weight: 900; letter-spacing: -2px; }
-        .glass-card { background: #ffffff; border: 1px solid rgba(0,0,0,0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .glass-card:hover { transform: scale(1.02); shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); border-color: #000; }
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); }
-        .modal-content { margin: 5% auto; width: 90%; max-width: 500px; animation: slideUp 0.4s ease; }
-        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .cover-img { width: 100%; height: 250px; object-fit: cover; }
+        body { background-color: #fcfcfc; color: #000; font-family: 'Inter', sans-serif; }
+        .ace-title { font-weight: 900; letter-spacing: -1.5px; }
+        .glass-card { background: #ffffff; border: 1px solid rgba(0,0,0,0.06); transition: all 0.3s ease; }
+        .glass-card:active { transform: scale(0.98); }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(255,255,255,0.98); backdrop-filter: blur(15px); }
+        .modal-content { margin: 3% auto; width: 92%; max-width: 450px; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .cover-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #f0f0f0; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="p-8 flex justify-between items-center bg-white border-b border-gray-50 sticky top-0 z-50">
-        <h1 class="text-3xl ace-title uppercase">ACE AL SAT</h1>
-        <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
+    <nav class="p-5 flex justify-between items-center bg-white border-b border-gray-100 sticky top-0 z-50">
+        <h1 class="text-2xl ace-title uppercase">ACE AL SAT</h1>
+        <div class="flex items-center gap-2">
+            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Canlı</span>
+            <div class="h-2 w-2 bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></div>
+        </div>
     </nav>
 
-    <main class="container mx-auto px-6 py-12 max-w-lg">
-        <div class="mb-10">
-            <h2 class="text-sm font-bold tracking-[0.3em] uppercase text-gray-400 mb-2">Vitrin</h2>
-            <div class="h-1 w-12 bg-black"></div>
+    <main class="container mx-auto px-6 py-8 max-w-md">
+        <div class="mb-6">
+            <h2 class="text-[11px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-1">Günün Seçimi</h2>
+            <div class="h-[2px] w-8 bg-black"></div>
         </div>
 
-        <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-xl" onclick="openModal()">
+        <div class="glass-card rounded-[2rem] overflow-hidden shadow-md cursor-pointer" onclick="openModal()">
             <img src="Screenshot_20260319_182330_Brawl Stars.jpg" alt="Kapak" class="cover-img">
             
-            <div class="p-8">
-                <div class="flex justify-between items-start mb-6">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
                     <div>
-                        <span class="text-[10px] font-black bg-black text-white px-3 py-1 rounded-full uppercase tracking-widest">Takas Aktif</span>
-                        <h3 class="text-3xl font-black mt-3 leading-tight italic uppercase">37K Kupa <br>Brawl Stars</h3>
+                        <span class="text-[9px] font-black bg-blue-50 text-blue-600 px-2 py-1 rounded-md uppercase tracking-tighter">Brawl Stars</span>
+                        <h3 class="text-xl font-extrabold mt-2 leading-tight uppercase italic text-gray-800">37K Kupa Takaslık</h3>
                     </div>
-                    <span class="text-xs font-medium text-gray-400">#001</span>
+                    <span class="text-[10px] font-bold text-gray-300">#001</span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-8 text-center">
-                    <div class="bg-gray-50 p-4 rounded-2xl">
-                        <p class="text-[10px] uppercase text-gray-400 font-bold mb-1">Karakter</p>
-                        <p class="text-xl font-black">73</p>
+                <div class="grid grid-cols-2 gap-3 mb-6 text-center text-sm">
+                    <div class="bg-gray-50 py-3 rounded-xl border border-gray-100">
+                        <p class="text-[9px] uppercase text-gray-400 font-bold mb-1 italic">Karakter</p>
+                        <p class="font-bold text-gray-800">73 Adet</p>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-2xl">
-                        <p class="text-[10px] uppercase text-gray-400 font-bold mb-1">Sezon</p>
-                        <p class="text-xl font-black">2019</p>
+                    <div class="bg-gray-50 py-3 rounded-xl border border-gray-100">
+                        <p class="text-[9px] uppercase text-gray-400 font-bold mb-1 italic">Yıl</p>
+                        <p class="font-bold text-gray-800">2019</p>
                     </div>
                 </div>
 
-                <p class="text-center text-xs font-bold text-gray-300 uppercase tracking-widest group-hover:text-black transition">İncelemek için dokun</p>
+                <p class="text-center text-[10px] font-bold text-blue-500 uppercase tracking-widest">İncele & Teklif Ver</p>
             </div>
         </div>
     </main>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <div class="flex justify-between items-center mb-8 px-2">
-                <h2 class="text-2xl font-black uppercase tracking-tighter">Hesap Detayı</h2>
-                <button onclick="closeModal()" class="text-4xl font-light">&times;</button>
+            <div class="flex justify-between items-center mb-6 px-2">
+                <h2 class="text-xl font-extrabold uppercase tracking-tighter">Hesap Detayı</h2>
+                <button onclick="closeModal()" class="text-3xl font-light text-gray-400 hover:text-black">&times;</button>
             </div>
             
-            <div class="space-y-4 mb-8">
-                <img src="Screenshot_20260319_182330_Brawl Stars.jpg" class="rounded-[2rem] shadow-lg w-full">
-                <img src="Screenshot_20260319_182340_Brawl Stars.jpg" class="rounded-[2rem] shadow-lg w-full">
+            <div class="space-y-3 mb-6">
+                <img src="Screenshot_20260319_182330_Brawl Stars.jpg" class="rounded-[1.5rem] shadow-sm w-full">
+                <img src="Screenshot_20260319_182340_Brawl Stars.jpg" class="rounded-[1.5rem] shadow-sm w-full">
             </div>
 
-            <div class="bg-black text-white p-8 rounded-[2.5rem] mb-8 shadow-2xl">
-                <div class="flex justify-between border-b border-gray-800 pb-3 mb-3">
-                    <span class="opacity-50 text-xs uppercase font-bold">Kupa</span>
-                    <span class="font-bold">37.083</span>
+            <div class="bg-white border border-gray-100 p-6 rounded-[2rem] mb-6 shadow-sm">
+                <div class="flex justify-between border-b border-gray-50 pb-3 mb-3 text-sm">
+                    <span class="text-gray-400 font-medium">Toplam Kupa</span>
+                    <span class="font-bold text-gray-800 tracking-tight">37.083</span>
                 </div>
-                <div class="flex justify-between border-b border-gray-800 pb-3 mb-3">
-                    <span class="opacity-50 text-xs uppercase font-bold">Karakterler</span>
-                    <span class="font-bold">73 Adet</span>
+                <div class="flex justify-between border-b border-gray-50 pb-3 mb-3 text-sm">
+                    <span class="text-gray-400 font-medium">Karakter Sayısı</span>
+                    <span class="font-bold text-gray-800">73 / 100</span>
                 </div>
-                <div class="flex justify-between">
-                    <span class="opacity-50 text-xs uppercase font-bold">Hesap Sahibi</span>
-                    <span class="font-bold">MSE | GeVeZe</span>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-400 font-medium">Hesap Adı</span>
+                    <span class="font-bold text-blue-600">MSE | GeVeZe</span>
                 </div>
             </div>
 
             <a href="https://wa.me/905010291556?text=Merhaba,%20Ace%20Al%20Sat%20üzerindeki%2037K%20kupalı%20Brawl%20Stars%20hesabınız%20için%20teklif%20vermek%20istiyorum." 
-               class="block w-full bg-blue-600 text-white text-center py-6 rounded-[2rem] font-black uppercase tracking-widest shadow-lg shadow-blue-200 hover:bg-blue-700 transition">
-                TEKLİF VER / SATIN AL
+               class="block w-full bg-black text-white text-center py-5 rounded-[1.5rem] font-bold text-xs uppercase tracking-[0.2em] shadow-xl hover:bg-gray-900 transition-all active:scale-95">
+                WHATSAPP TEKLİF VER
             </a>
             
-            <div class="h-20"></div> </div>
+            <div class="h-10"></div>
+        </div>
     </div>
 
     <script>
@@ -101,3 +105,4 @@
 
 </body>
 </html>
+
